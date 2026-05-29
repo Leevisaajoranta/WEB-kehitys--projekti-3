@@ -6,6 +6,13 @@ body {
     align-items: center;
 }
 
+html, body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
 .container {
     padding: 10px;
     width: 400px;
@@ -14,7 +21,7 @@ body {
 
 h1 {
     text-align: center;
-    color: #333;
+    color: #dddddd;
     font-size: 60px;
 }
 
@@ -83,6 +90,6 @@ li span {
 #taskCount {
     text-align: center;
     font-size: 18px;
-    color: #333;
+    color: #cccccc;
 }
 

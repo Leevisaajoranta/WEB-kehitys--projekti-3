@@ -1,99 +1,127 @@
-const addBtn = document.getElementById("addBtn");
-const input = document.getElementById("todoInput");
-const list = document.getElementById("todoList");
-const errorMsg = document.getElementById("errorMsg");
-const taskCount = document.getElementById("taskCount");
+$(document).ready(function () {
 
-addBtn.addEventListener("click", addTodo);
-
-// Enter lisää tehtävän
-input.addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
+    $("#addBtn").click(function () {
         addTodo();
-    }
-});
+    });
 
-// kuinka monta tehtävää jäljellä
-function updateTaskCount() {
-    const totalTasks = list.children.length;
-    const completedTasks = list.querySelectorAll("input[type='checkbox']:checked").length;
-    const remainingTasks = totalTasks - completedTasks;
-    taskCount.textContent = `Tehtäviä jäljellä: ${remainingTasks}`;
-}
+    $("#todoInput").keypress(function (event) {
+        if (event.key === "Enter") {
+            addTodo();
+        }
+    });
 
-// Poista virhe, kun käyttäjä kirjoittaa
-input.addEventListener("input", clearError);
+    $("#todoInput").on("input", function () {
+        clearError();
+    });
 
-// Virheilmoitukset
-function addTodo() {
+    $(document).on("click", ".deleteBtn", function () {
 
-    const text = input.value.trim();
+        $(this).parent().fadeOut(300, function () {
 
-    if (text === "") {
-        showError("Kirjoita tehtävä ensin");
-        return;
-    }
+            $(this).remove();
+            updateTaskCount();
 
-    if (text.length < 2) {
-        showError("Tehtävän pituus on liian lyhyt! Kirjoita pidempi tehtävä.");
-        return;
-    }
+        });
 
-    clearError();
+    });
 
-    // luodaan li
-    const li = document.createElement("li");
+    VANTA.BIRDS({
+    el: "#background",
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    scale: 1.00,
+    scaleMobile: 1.00,
+    backgroundColor: 0x10128,
+    color1: 0x8c0000,
+    color2: 0x3fa200,
+    colorMode: "lerp",
+    birdSize: 2.10,
+    quantity: 2.00
+    });
 
-    // checkbox
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
+    $(document).on("change", ".checkTask", function () {
 
-    // tehtävän teksti
-    const span = document.createElement("span");
-    span.textContent = text;
+        const span = $(this).siblings("span");
 
-    // Kun checkbox valitaan
-    checkbox.addEventListener("change", function() {
-        if (checkbox.checked) {
-            span.style.textDecoration = "line-through";
-            span.style.color = "lightgray";
+        if ($(this).is(":checked")) {
+
+            span.css({
+                "text-decoration": "line-through",
+                "color": "lightgray"
+            });
+
         } else {
-            span.style.textDecoration = "none";
-            span.style.color = "black";
+
+            span.css({
+                "text-decoration": "none",
+                "color": "black"
+            });
+
         }
 
         updateTaskCount();
+
     });
 
-    // Poista nappi
-    const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "Poista";
-    deleteBtn.classList.add("deleteBtn");
+});
 
-    deleteBtn.addEventListener("click", function() {
-        li.remove();
-        updateTaskCount();
-    });
+function addTodo() {
 
-    // lisätään elementit li:hin
-    li.appendChild(checkbox);
-    li.appendChild(span);
-    li.appendChild(deleteBtn);
+    const text = $("#todoInput").val().trim();
 
-    // lisätään listaan
-    list.appendChild(li);
+    if (text === "") {
 
-    input.value = "";
+        showError("Kirjoita tehtävä ensin");
+        return;
+
+    }
+
+    const newTask = $(`
+        <li>
+            <input type="checkbox" class="checkTask">
+            <span>${text}</span>
+            <button class="deleteBtn">Poista</button>
+        </li>
+    `);
+
+    $("#todoList").append(newTask);
+
+    newTask.hide().fadeIn(400);
+
+    $("#todoInput").val("");
+
+    clearError();
+
     updateTaskCount();
 }
 
+function updateTaskCount() {
+
+    const totalTasks = $("#todoList li").length;
+
+    const completedTasks =
+        $("#todoList input[type='checkbox']:checked").length;
+
+    const remainingTasks = totalTasks - completedTasks;
+
+    $("#taskCount").text(
+        `Tehtäviä jäljellä: ${remainingTasks}`
+    );
+}
 
 function showError(message) {
-    errorMsg.textContent = message;
-    input.classList.add("error");
+
+    $("#errorMsg").text(message);
+
+    $("#todoInput").addClass("error");
 }
 
 function clearError() {
-    errorMsg.textContent = "";
-    input.classList.remove("error");
+
+    $("#errorMsg").text("");
+
+    $("#todoInput").removeClass("error");
 }
