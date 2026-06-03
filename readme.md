@@ -12,7 +12,7 @@ Tein projektin yksin joten projekti jakautui vain minulle
 
 ## Oma arvio työstä ja oman osaamisen kehittymisestä
 Mielestäni onnistuin käyttämään hyvin ulkoista kirjastoa
-Sovelluksesta jäi puuttumaan...
+Sovelluksesta jäi puuttumaan localStorage
 Koen, että olen oppinut, miten ulkoisia kirjastoja hyödynnetään
 Antaisin itselleni pisteitä seuraavasti: 8/10 p
 
