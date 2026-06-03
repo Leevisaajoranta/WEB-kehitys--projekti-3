@@ -5,7 +5,7 @@ Tekijät: Leevi Saajoranta
 ## Verkkolinkit:
 Pääset julkaistuun sovellukseen käsiksi osoitteessa [google.com](https://leevisaajoranta.github.io/WEB-kehitys--projekti-3/)
 
-Linkki projektin Netlify sivulle [netlify.com] (https://app.netlify.com/projects/todolista2/overview)
+Linkki projektin Netlify sivulle [netlify.com](https://app.netlify.com/projects/todolista2/overview)
 
 ## Työn jakautuminen 
 Tein projektin yksin joten projekti jakautui vain minulle
