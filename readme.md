@@ -35,7 +35,7 @@ TODO lista 2 on sovellus, jolla voit merkata tehtäviä todo-listaan
 Virheitä on sen verran, että sovellus ei tallenna localStorageen, vaan pelkästään sessionStorageen.
 
 ## Kuvakaappaukset
-Lisää tähän vähintään yksi kuvakaappaus toimivasta sovelluksesta  
+Kuva toimivasta sovelluksesta:  
 ![Kuva sivustosta](kuvat/TODO_lista2_kuva.png)
 
 ## Teknologiat
