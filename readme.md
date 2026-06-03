@@ -4,6 +4,7 @@ Tekijät: Leevi Saajoranta
 
 ## Verkkolinkit:
 Pääset julkaistuun sovellukseen käsiksi osoitteessa [google.com](https://leevisaajoranta.github.io/WEB-kehitys--projekti-3/)
+
 Linkki projektin Netlify sivulle [netlify.com] (https://app.netlify.com/projects/todolista2/overview)
 
 ## Työn jakautuminen 
@@ -21,7 +22,7 @@ Kurssi on tuntunut mukavalta ja rennolta. Pidän siitä, että kurssilla saa ede
 ## Sisällysluettelo:
 
 - [Tietoja sovelluksesta](#tietoja-sovelluksesta)
-- [Tunnetut Virheet](#Tunnetut virheet/bugit)
+- [Tunnetut Virheet](#Tunnetut-virheet)
 - [Kuvakaappaukset](#kuvakaappaukset)
 - [Teknologiat](#teknologiat)
 - [Asennus](#asennus)
@@ -35,7 +36,7 @@ Virheitä on sen verran, että sovellus ei tallenna localStorageen, vaan pelkäs
 
 ## Kuvakaappaukset
 Lisää tähän vähintään yksi kuvakaappaus toimivasta sovelluksesta  
-![Kuva sivustosta](Kuvat/TODO_lista2_kuva.png)
+![Kuva sivustosta](kuvat/TODO_lista2_kuva.png)
 
 ## Teknologiat
 Kuvaa, mitä teknologioita käytettiin ja mikä oli niiden rooli projektissasi.  
